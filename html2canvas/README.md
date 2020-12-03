@@ -101,3 +101,5 @@ Promise.all(
 ```
 
 3. 微信导出不成功：issues：https://github.com/niklasvh/html2canvas/issues/2205 建议使用"html2canvas": "1.0.0-rc.4"
+
+> 在亲自调研了html2canvas库并使用的过程中, 笔者发现了很多问题, 比如如果样式中出现%单位, 或者有一些图片背景的问题, 导致html2canvas并没有很好的work, 而且渲染还原度和清晰度都有问题, 所以笔者暂时没有深入研究(不过这些问题可以通过修改库本身解决)
