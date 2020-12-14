@@ -1,0 +1,14 @@
+{
+  "name": "webpackPlugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn webpack"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
+  }
+}
