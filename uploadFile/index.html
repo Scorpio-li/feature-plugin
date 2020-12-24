@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+
+<body>
+    <input type='file' onchange="checkFile(this.files)" />
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 通过sctipt标签引入该文件，会在全局生成名为 qiniu 的对象 -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qiniu-js/1.8/qiniu.min.js"></script> -->
+<script type="text/javascript">
+    // 本地预览
+
+    // 先获取本地数据URl地址：在window.url上有一个createObjectURL的方法，能解析上面files对象，返回一个二进制的src
+    function createObjectURL(blob) {
+        if (window.URL) {
+            return window.URL.createObjectURL(blob);
+        } else if (window.webkitURL) {
+            return window.webkitURL.createObjectURL(blob);
+        } else {
+            return null;
+        }
+    }
+
+    // 文件检测：在上传前,要对文件类型和大小的检测，也是通过获取到的files对象进行判断
+
+    function checkFile(files) {
+        //获取文件 
+        console.log('files', files);
+        const file = files[0];
+        //文件为空判断 
+        if (file === null || file === undefined) {
+            alert("请选择您要上传的文件！");
+            return false;
+        }
+        //计算文件大小 
+        let size = Math.floor(file.size / 1024);
+        if (size > 10000) {
+            alert("上传文件不得超过10M!");
+            return false;
+        };
+        //检测文件类型 
+        if (file.type.indexOf('image') === -1 && file.type.indexOf('video') === -1) {
+            alert("请选择图片文件或视频文件！");
+            return false;
+        }
+        if (file.type.indexOf('jpeg') === -1 && file.type.indexOf('mp4') === -1) {
+            alert("图片目前支持jpg格式，视频支持mp4格式");
+            return false;
+        }
+        console.log('file', file, createObjectURL(file));
+        // 插入图片或视频
+        $("body").innerHTML = file.type.indexOf('image') === -1 ?
+            "<video src=\"" + createObjectURL(file) + "\"/>" :
+            "<img src=\"" + createObjectURL(file) + "\"/>"
+        return true;
+    };
+</script>
+
+</html>

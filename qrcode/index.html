@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QrCode</title>
+    <style>
+        #demodiv {
+            text-align: center;
+        }
+        
+        #demodiv>input {
+            outline: none;
+            border: 1px red solid;
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demodiv">
+        <h1>QRCode生成二维码</h1>
+        <input type="text" />
+        <!--调用转换方法-->
+        <button onclick="demo()">点我生成</button>
+    </div>
+    <div id="code"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>`
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script src="./handler-chinese.js"></script>
+<script type="text/javascript">
+    function demo() {
+        //获取输入框结果
+        var text = $("#demodiv>input").val();
+        //调用装换方法
+        var newText = utf16to8(text)
+            //设置范围大小并且设置生成二维码内容
+        $("#code").qrcode({
+            wihth: 150,
+            height: 200,
+            text: newText
+        });
+    }
+</script>
+
+</html>
