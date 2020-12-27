@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+        
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        设置后，音频会初始化为静音，注意浏览器只有设置静音，才能自动播放 muted 
+        
+        视频会马上自动开始播放，不会停下来等着数据载入结束。autoplay="autoplay"
+        
+        布尔属性；指定后，会在视频结尾的地方，自动返回视频开始的地方 loop="loop" 
+        
+        一个布尔属性，标志视频将被“inline”播放，即在元素的播放区域内。
+            x5-playsinline="true"
+            playsinline="true"
+            webkit-playsinline="true"
+        
+        一个布尔属性，用于禁用使用有线连接的设备(HDMI、DVI等)的远程播放功能。
+            x-webkit-airplay="allow"// 这个视频优先加载preload="auto"
+        
+        启用同层H5播放器，就是在视频全屏的时候，div可以呈现在视频层上，也是WeChat安卓版特有的属性。同层播放别名也叫做沉浸式播放
+            x5-video-player-type="h5"
+            
+        全屏设置。它又两个属性值，ture和false，true支持全屏播放
+            x5-video-player-fullscreen="true"
+    -->
+    <video id="vi" class="video-player" x5-video-player-type="h5" x-webkit-airplay="true" webkit-playsinline="true" playsinline="" poster="" preload="" autoplay="autoplay" loop="loop">
+        <!-- <source> 标签为媒介元素（比如 <video> 和 <audio>）定义媒介资源。 -->
+        <source
+            src="https://img-ys011.didistatic.com/static/didiglobal/didi-home-video0626.mp4"
+            type="video/mp4"
+            x5-video-player-type="h5"
+            x-webkit-airplay="true"
+            webkit-playsinline="true"
+            playsinline=""
+            poster=""
+            preload=""
+            autoplay="autoplay"
+            loop="loop">
+            <track kind="captions">
+    </video>
+</body>
+
+</html>
