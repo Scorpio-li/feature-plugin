@@ -64,6 +64,100 @@ module.exports = router
 
 ### 根据字段类型或字段名称生成特定的 mock 数据
 
+- 配置 yapi-code：
+
+- 配在 package.json 中即可。
+
+```json
+	"yapi-code.mockKeyWordLike": {
+		"icon": "Random.image('48x48')",
+		"img":"Random.image('48x48')",
+		"image":"Random.image('48x48')",
+		"code": "200&&number",
+		"name":"'模糊匹配后生成的mock'"
+	},
+	"yapi-code.mockKeyWordEqual": {
+		"message": "'这是一条精确的mock'",
+		"total": 200,
+	},
+	"yapi-code.mockString": "Random.cword(5, 6)",
+	"yapi-code.mockBoolean": "Random.boolean()",
+	"yapi-code.mockNumber": "Random.natural(100,1000)"
+```
+
+根据 json 数据：
+
+```js
+const json = {
+	code: 100,
+	message: '请求成功',
+	result: {
+		list: [
+			{
+				code: '注意这是一个字符串的code',
+				name: '张三',
+				icon: '',
+				actived: false,
+			},
+		],
+		total: 0,
+	},
+}
+```
+
+生成如下代码
+
+```js
+.get(`xxxxx`, async (ctx, next) => {
+		const list1 = []
+		for (let i = 0; i < 3; i++) {
+			list1.push({
+				code: Random.cword(5, 6),
+				name: '模糊匹配后生成的mock',
+				icon: Random.image('48x48'),
+				actived: Random.boolean(),
+			})
+		}
+		ctx.body = {
+			code: 200,
+			message: '这是一条精确的mock',
+			result: { list: list1, total: 200 },
+		}
+	})
+```
+
+访问 mock 接口即可拿到如下类似数据：
+
+```json
+{
+	"code": 200,
+	"message": "这是一条精确的mock",
+	"result": {
+		"list": [
+			{
+				"code": "八别因教者活",
+				"name": "模糊匹配后生成的mock",
+				"icon": "http://dummyimage.com/48x48",
+				"actived": true
+			},
+			{
+				"code": "毛着何工时白",
+				"name": "模糊匹配后生成的mock",
+				"icon": "http://dummyimage.com/48x48",
+				"actived": false
+			},
+			{
+				"code": "县称县单下外",
+				"name": "模糊匹配后生成的mock",
+				"icon": "http://dummyimage.com/48x48",
+				"actived": true
+			}
+		],
+		"total": 200
+	}
+}
+```
+
 如下为默认的，按需要自行配置即可
 
 ![](https://gitee.com/img-host/img-host/raw/master//2020/11/12/1605111557350.png)
