@@ -1,0 +1,67 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2020-12-29 10:41:57
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2020-12-29 10:41:58
+ * @FilePath: /feature-plugin/pluginItem/magnifyingGlass/advanced.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜进阶版</title>
+    <link rel="stylesheet" href="./css/glass.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script type="text/javascript" src="./js/glass.js"></script>
+</head>
+
+<body id="bd">
+    hello world!!
+    <div id="jb">显示图标</div>
+    <input type="text" id="txt" />
+    <div id="show"></div>
+    <div id='btn'>放大镜</div>
+    <div id="dv">
+        <!--遮罩层-->
+        <div id='box'></div>
+        <!--相当于小图-->
+        <div id="mask"></div>
+        <!--跟着鼠标的区域-->
+        <div id="look">
+            <div id="move"></div>
+            <!--移动的地方-->
+        </div>
+        <!--显示的区域-->
+    </div>
+</body>
+
+<script>
+    $(function() {
+        $('#dv').glass();
+
+        $('#jb').on('click', function() {
+            var img = document.createElement('img');
+            img.src = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201310%2F19%2F235439yh04c010wm0qrk5d.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1611798652&t=982d0747ab14d42e7c6e1ffc11e8f17d';
+            img.width = 100;
+            img.height = 100;
+            var leftRandom = Math.random() * 1366;
+            var topRandom = Math.random() * 768;
+            img.style.position = 'absolute';
+            img.style.left = leftRandom + 'px';
+            img.style.top = topRandom + 'px';
+            $('#show').append(img);
+            // 大图的宽 / 小图的宽 = 大图的移动距离 / 小图的移动距离
+            // x = newImg.width / $('#bd').width() * x / 2;
+            // y = newImg.width / $('#bd').width() * y / 2;
+            // $('#move').css('left',-x);
+            // $('#move').css('top',-y);
+
+        })
+    });
+</script>
+
+</html>

@@ -7,7 +7,7 @@
 -->
 # feature-plugin
 
-## 前端常用功能插件或库
+## 前端常用功能插件或库(PluginItem)
 
 [html2canvas(前端快照功能)](html2canvas)
 [data-to-image前端实现一键截图功能](dataToImage)
@@ -16,8 +16,9 @@
 [生成二维码-QrCodeJS](qrcode)
 [mock & 代理工具](mockDemo)
 [Three.js](three)
+[放大镜功能](magnifyingGlass)
 
-## 常用业务处理(project)
+## 常用业务处理(Project)
 
 [前端如何处理大量数据](dataProcessing)
 
