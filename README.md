@@ -7,16 +7,22 @@
 -->
 # feature-plugin
 
-## 前端常用功能插件或库(PluginItem)
+## 前端常用插件或库(PluginItem)
 
 [html2canvas(前端快照功能)](html2canvas)
+
 [data-to-image前端实现一键截图功能](dataToImage)
+
 [webpack常用功能](webpackPlugin)
+
 [Jest测试](jestDemo)
+
 [生成二维码-QrCodeJS](qrcode)
+
 [mock & 代理工具](mockDemo)
+
 [Three.js](three)
-[放大镜功能](magnifyingGlass)
+
 
 ## 常用业务处理(Project)
 
@@ -33,5 +39,11 @@
 [序列图片视频化技术高性能实现方法](imageVideo)
 
 [解决移动端弹窗滚动穿透问题](scrollThrough)
+
+## 常用功能代码块(functionModel)
+
+[放大镜功能](magnifyingGlass)
+
+[瀑布流](waterfallFlow)
 
 

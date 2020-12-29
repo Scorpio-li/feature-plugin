@@ -1,0 +1,88 @@
+<!-- 有问题，待验证 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/jquery-waterfall.js"></script>
+</head>
+
+<body>
+    <!--页面容器-->
+    <div class="container">
+        <!--所有item的集合，距离顶部有距离-->
+        <div class="items">
+            <!--每一个小块，包含了图片和文字-->
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+            <div class="item">
+                <img src="" />
+                <p>hello</p>
+            </div>
+        </div>
+    </div>
+    <div class="btn">正在加载...</div>
+</body>
+<script>
+    /*页面上所有的资源都加载完成后进行布局，否则获取不到图片的尺寸撑不开盒子的高度*/
+    window.onload = function() {
+        $(".items").waterfall();
+    }
+</script>
+
+</html>
