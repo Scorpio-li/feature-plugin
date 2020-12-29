@@ -1,0 +1,17 @@
+{
+    "name": "remove-console",
+    "version": "1.0.0",
+    "description": "生产环境去除console",
+    "main": "index.js",
+    "scripts": {
+        "build": "yarn webpack"
+    },
+    "devDependencies": {
+        "babel-plugin-transform-remove-console": "^6.9.4",
+        "webpack": "^5.10.1",
+        "webpack-cli": "^4.2.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
