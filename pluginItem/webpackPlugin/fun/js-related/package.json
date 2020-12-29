@@ -1,0 +1,27 @@
+{
+    "name": "js-related",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "yarn webpack"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^7.16.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "html-webpack-plugin": "^4.5.0",
+        "webpack": "^5.11.1"
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base",
+        "env": {
+            "browser": true
+        }
+    }
+}

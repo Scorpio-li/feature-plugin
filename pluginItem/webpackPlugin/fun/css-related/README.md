@@ -71,123 +71,183 @@ module.exports = {
 
 1. 我们在这里使用postcss来处理css的兼容性问题。在webpack下想要使用postcss的功能需要借助使用'postcss-loader'这个Loader和这个Loader的插件'postcss-preset-env'来实现css的兼容性处理。
 
-    - 第一步：下载'postcss-loader'和'postcss-preset-env'即(cnpm i postcss-loader postcss-preset-env -D)
+- 第一步：下载'postcss-loader'和'postcss-preset-env'即(cnpm i postcss-loader postcss-preset-env -D)
 
-        > 注意点：Loader的两种写法：一种是使用Loader的默认配置写法(不修改其任何配置)，一种是使用自定义配置写法(修改其相关配置)
+> 注意点：Loader的两种写法：一种是使用Loader的默认配置写法(不修改其任何配置)，一种是使用自定义配置写法(修改其相关配置)
 
-        ```js
-        <!-- 默认配置写法 -->
-        module: {
-            rules: [
-            {
-                test: /\.css$/,
-                use: [
-                'css-loader'
-                ]
+```js
+<!-- 默认配置写法 -->
+module: {
+rules: [
+{
+test: /\.css$/,
+use: [
+'css-loader'
+]
+}
+]
+}
+```
+
+```js
+<!-- 自定义配置写法 -->
+module: {
+rules: [
+{
+test: /\.css$/,
+use: [
+MiniCssExtractPlugin.loader,
+//使用 'css-loader'的默认配置写法
+'css-loader',
+
+// 使用对象的写法来修改loader的配置
+{
+loader: 'postcss-loader',
+options: {
+ident: 'postcss',
+plugins: () => [
+// 使用postcss的插件
+require('postcss-preset-env')()
+]
+}
+}
+]
+}
+]
+}
+```
+
+- 注意点：'postcss-preset-env'可以识别具体的环境从而加载指定的配置使得css精确的兼容到指定的浏览器的版本
+
+- 注意点：'postcss-preset-env'可以帮postcss找到package.json中browserslist里面的配置，然后通过这个'browserslist'里面的配置加载指定的css兼容性样式
+
+- 在package.json中去配置browserslist，告知如何兼容css样式，书写的格式可以参考下面的写法(更多的配置可以在github上搜索关键字"browserslist")：
+
+```js
+"browserslist": {
+"development": [
+"last 1 chrome version",
+"last 1 firefox version",
+"last 1 safari version"
+],
+"production": [
+">0.2%",
+"not dead",
+"not op_mini all"
+]
+},
+```
+
+- 注意点："development"是开发环境，而"production"是生产环境
+
+- 注意点：在第二步中运行命令webpack后默认是看生产环境，即在package.json中配置的"production"会默认生效。注意这里是默认看生产环境(即"production")的配置，而不是去看webpack.config.js的mode配置，也就是说与webpack.config.js的mode配置是无关的。
+
+- 注意点：如果我们想要让css兼容规则以开发环境的配置来做(即以package.json中配置的"development"的规则来兼容)，需要单独设置nodejs的环境变量(即在webpack.config.js中添加process.env.NODE_ENV = 'development')
+
+```js
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// 设置nodejs环境变量让css兼容规则以开发环境的配置来做
+// process.env.NODE_ENV = 'development';
+
+module.exports = {
+entry: './src/js/index.js',
+output: {
+filename: 'js/built.js',
+path: resolve(__dirname, 'build')
+},
+module: {
+rules: [
+{
+test: /\.css$/,
+use: [
+MiniCssExtractPlugin.loader,
+//使用 'css-loader'的默认配置
+'css-loader',
+{
+loader: 'postcss-loader',
+options: {
+ident: 'postcss',
+plugins: () => [
+// 使用postcss的插件
+require('postcss-preset-env')()
+]
+}
+}
+]
+}
+]
+},
+plugins: [
+new HtmlWebpackPlugin({
+template: './src/index.html'
+}),
+new MiniCssExtractPlugin({
+filename: 'css/built.css'
+})
+],
+mode: 'development'
+};
+```
+
+## 压缩css文件
+
+### 实现方式之一：
+
+引入压缩css的插件'optimize-css-assets-webpack-plugin'。(即cnpm i optimize-css-assets-webpack-plugin -D)并使用，执行webpack命令后即见效果。
+
+```js
+// webpack.config.js配置代码
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+//引入压缩css的插件'optimize-css-assets-webpack-plugin'
+//cnpm i optimize-css-assets-webpack-plugin -D
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+
+// 设置nodejs环境变量
+// process.env.NODE_ENV = 'development';
+
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                // postcss的插件
+                require('postcss-preset-env')()
+              ]
             }
-            ]
-        }
-        ```
-
-        ```js
-        <!-- 自定义配置写法 -->
-        module: {
-            rules: [
-                {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    //使用 'css-loader'的默认配置写法
-                    'css-loader',
-
-                    // 使用对象的写法来修改loader的配置
-                    {
-                    loader: 'postcss-loader',
-                    options: {
-                        ident: 'postcss',
-                        plugins: () => [
-                        // 使用postcss的插件
-                        require('postcss-preset-env')()
-                        ]
-                    }
-                    }
-                ]
-                }
-            ]
-        }
-        ```
-        
-        - 注意点：'postcss-preset-env'可以识别具体的环境从而加载指定的配置使得css精确的兼容到指定的浏览器的版本
-        
-        - 注意点：'postcss-preset-env'可以帮postcss找到package.json中browserslist里面的配置，然后通过这个'browserslist'里面的配置加载指定的css兼容性样式
-    
-    - 在package.json中去配置browserslist，告知如何兼容css样式，书写的格式可以参考下面的写法(更多的配置可以在github上搜索关键字"browserslist")：
-
-        ```js
-        "browserslist": {
-            "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-            ],
-            "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-            ]
-        },
-        ```
-
-        - 注意点："development"是开发环境，而"production"是生产环境
-
-        - 注意点：在第二步中运行命令webpack后默认是看生产环境，即在package.json中配置的"production"会默认生效。注意这里是默认看生产环境(即"production")的配置，而不是去看webpack.config.js的mode配置，也就是说与webpack.config.js的mode配置是无关的。
-
-        - 注意点：如果我们想要让css兼容规则以开发环境的配置来做(即以package.json中配置的"development"的规则来兼容)，需要单独设置nodejs的环境变量(即在webpack.config.js中添加process.env.NODE_ENV = 'development')
-
-        ```js
-        const { resolve } = require('path');
-        const HtmlWebpackPlugin = require('html-webpack-plugin');
-        const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-        // 设置nodejs环境变量让css兼容规则以开发环境的配置来做
-        // process.env.NODE_ENV = 'development';
-
-        module.exports = {
-        entry: './src/js/index.js',
-        output: {
-            filename: 'js/built.js',
-            path: resolve(__dirname, 'build')
-        },
-        module: {
-            rules: [
-            {
-                test: /\.css$/,
-                use: [
-                MiniCssExtractPlugin.loader,
-                //使用 'css-loader'的默认配置
-                'css-loader',
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                    ident: 'postcss',
-                    plugins: () => [
-                        // 使用postcss的插件
-                        require('postcss-preset-env')()
-                    ]
-                    }
-                }
-                ]
-            }
-            ]
-        },
-        plugins: [
-            new HtmlWebpackPlugin({
-            template: './src/index.html'
-            }),
-            new MiniCssExtractPlugin({
-            filename: 'css/built.css'
-            })
-        ],
-        mode: 'development'
-        };
-        ```
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/built.css'
+    }),
+    // 压缩css
+    new OptimizeCssAssetsWebpackPlugin()
+  ],
+  mode: 'development'
+};
+```
