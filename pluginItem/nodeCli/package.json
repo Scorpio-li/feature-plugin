@@ -1,0 +1,8 @@
+{
+    "name": "sample-cli",
+    "version": "1.0.0",
+    "description": "创建脚手架",
+    "main": "index.js",
+    "bin": "cli.js",
+    "license": "MIT"
+}

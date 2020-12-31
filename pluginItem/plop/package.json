@@ -1,0 +1,15 @@
+{
+  "name": "plob",
+  "version": "1.0.0",
+  "description": "<!--  * @Author: Li Zhiliang  * @Date: 2020-12-31 14:17:12  * @LastEditors: Li Zhiliang  * @LastEditTime: 2020-12-31 14:17:14  * @FilePath: /feature-plugin/pluginItem/plob/README.md -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "plop": "^2.7.4"
+  }
+}
