@@ -1,8 +1,20 @@
 {
-    "name": "sample-cli",
-    "version": "1.0.0",
-    "description": "创建脚手架",
-    "main": "index.js",
-    "bin": "cli.js",
-    "license": "MIT"
+  "name": "nodecli",
+  "version": "1.0.0",
+  "description": "脚手架",
+  "main": "index.js",
+  "bin": {
+    "scale-mine": "bin/test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "log-symbols": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

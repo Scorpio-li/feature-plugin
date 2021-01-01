@@ -1,0 +1,7 @@
+{
+  "name": "Js-control",
+  "version": "1.0.0",
+  "description": "Js实现并发控制",
+  "main": "index.js",
+  "license": "MIT"
+}
