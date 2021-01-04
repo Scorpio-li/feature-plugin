@@ -1,0 +1,91 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-01-04 16:20:52
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-01-04 16:30:05
+ * @FilePath: /feature-plugin/functionModel/signature/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #CCC;
+        }
+        
+        #oc {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 200px auto;
+            background: white;
+        }
+        
+        .span {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background: #fff;
+            line-height: 50px;
+            text-align: center;
+            margin: 193px 0 0 200px;
+            curosr: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="oc" width="500" height="500"></canvas>
+    <span class="span" onclick="reset()">重置</span>
+</body>
+<script>  
+// 获取canvas节点  
+
+let testNode = document.getElementById('oc');  
+
+window.onload = function(){   
+    // 判断是否支持   
+    if(testNode.getContext){    
+        var ctx = testNode.getContext("2d")    
+        testNode.onmousedown = function(ev){     
+            var ev = ev || event;     
+            ctx.beginPath();     
+            ctx.moveTo(ev.clientX - this.offsetLeft,ev.clientY - this.offsetTop);
+              
+            if(testNode.setCapture){      
+                testNode.setCapture(); // 对鼠标进行捕获     
+            }     
+            document.onmousemove = function(ev){      
+                var ev = ev || event;      
+                ctx.lineTo(ev.clientX - testNode.offsetLeft,ev.clientY - testNode.offsetTop); // 绘制线条      
+                ctx.stroke() // 绘制路劲      
+                // console.log(ev.clientX - testNode.offsetLeft,ev.clientY - testNode.offsetTop)     
+            }     
+            document.onmouseup = function(){      
+                document.onmousemove = document.onmouseup=null;      
+                if(document.releaseCapture){       
+                    document.releaseCapture(); // 释放对鼠标的捕获      
+                }     
+            }     
+            // 禁止事件的默认行为  处理拖拽在主流浏览器内的兼容问题     
+            return false;    
+        }   
+    }  
+}  
+
+// 重置  
+function reset() {   
+    testNode.getContext("2d").clearRect(0, 0, testNode.width, testNode.height); // 清空画布  
+} 
+</script>
+
+</html>

@@ -129,8 +129,52 @@ console.log(chalk.red('这里是lib/create'))
 
 为各种日志级别提供着色的符号（类似下载成功的√）
 
+```js
+const logSymbols = require('log-symbols')
 
+console.log(logSymbols.success)
+```
 
-### 
+### ora
 
-###
+显示下载中，可以设置样式等；有start，fail，succeed方法等。 
+
+```js
+const ora = require('ora')
+
+const spinner = ora('正在下载模板')
+
+spinner.start()
+spinner.fail()
+spinner.succeed()
+```
+
+### inquirer命令交互
+
+这个库是我们可以和用户交互的工具；我们定义了两个问题：项目名称和版本号，create.js中写入以下代码：
+
+```js
+const inquirer = require('inquirer')
+getInquirer().then((res) => {
+	console.log(res)
+})
+function getInquirer() {
+	return inquirer.prompt([
+		{
+			name: 'projectName',
+			message: 'project name',
+			default: 'project',
+		},
+		{
+			name: 'projectVersion',
+			message: '项目版本号',
+			default: '1.0.0',
+		},
+	])
+}
+```
+
+### download-git-repo
+
+该模块用于下载git上的模板项目，类似于vue-cli初始化一样，也是在git上下载一份代码回来本地完成开发环境搭建。下面代码封装了下载的代码，作用是根据传入的git地址克隆目标地址的代码到本地：
+

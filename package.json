@@ -16,5 +16,7 @@
     "bugs": {
         "url": "https://github.com/Scorpio-li/feature-plugin/issues"
     },
-    "homepage": "https://github.com/Scorpio-li/feature-plugin#readme"
+    "homepage": "https://github.com/Scorpio-li/feature-plugin#readme",
+    "devDependencies": {},
+    "dependencies": {}
 }
