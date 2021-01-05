@@ -45,6 +45,7 @@
 
 [邮件发送](mailBot)
 
+[字符串常用技巧](string)
 
 ## 常用功能代码块(functionModel)
 
@@ -55,5 +56,9 @@
 [页面布局](pageLayout)
 
 [签名功能](signature)
+
+[用户体验 | 页面阅读进度提示](readSchedule)
+
+[字体样式](stringStyle)
 
 
