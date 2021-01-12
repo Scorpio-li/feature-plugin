@@ -47,6 +47,8 @@
 
 [字符串常用技巧](string)
 
+[骨架屏 Skeleton 效果](skeleton)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)

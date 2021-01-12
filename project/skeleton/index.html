@@ -1,0 +1,61 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-01-11 15:57:15
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-01-11 16:05:37
+ * @FilePath: /feature-plugin/project/skeleton/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 实现骨架屏</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="card loading">
+        <div class="image">
+            <img src="https://assets.codepen.io/2002878/wake-up-and-code.jpg" alt="">
+        </div>
+        <div class="content">
+            <h4>CodingStartup</h4>
+            <div class="description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quasi enim facere commodi omnis...
+            </div>
+        </div>
+    </div>
+    <!-- 骨架屏 -->
+    <div class="card loading">
+        <div class="image">
+
+        </div>
+        <div class="content">
+            <h4></h4>
+            <div class="description">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // let card = document.getElementsByClassName('card');
+    // setTimeout(() => {
+    //     card[0].classList.remove("loading");
+    // }, 3000)
+    window.onload = function() {}
+
+    // jq
+    // $(document).ready(function(){
+    //     // document 不写默认document
+    // })
+
+    // vue: mounted
+    // this.$nextTick(() => {
+    //     // 确保dom异步加载完毕
+    // })
+</script>
+
+</html>
