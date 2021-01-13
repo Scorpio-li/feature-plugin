@@ -2,7 +2,7 @@
  * @Author: Li Zhiliang
  * @Date: 2020-11-05 15:05:47
  * @LastEditors: Li Zhiliang
- * @LastEditTime: 2020-12-26 14:08:36
+ * @LastEditTime: 2021-01-12 09:58:37
  * @FilePath: /feature-plugin/README.md
 -->
 # feature-plugin
@@ -48,6 +48,8 @@
 [字符串常用技巧](string)
 
 [骨架屏 Skeleton 效果](skeleton)
+
+[移动端页面适配 & loading加载效果](px2rem)
 
 ## 常用功能代码块(functionModel)
 
