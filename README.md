@@ -51,6 +51,10 @@
 
 [移动端页面适配 & loading加载效果](px2rem)
 
+[正则表达式](regexRule)
+
+[Worker实践](worker)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)
@@ -65,4 +69,8 @@
 
 [字体样式](stringStyle)
 
+[JS判断点击区域](clickContent)
 
+[时间处理](time)
+
+[App Store 卡片展开效果](cardShow)
