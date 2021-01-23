@@ -55,6 +55,8 @@
 
 [Worker实践](worker)
 
+[前端工程化-自动生成页面](autoBuild)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)
