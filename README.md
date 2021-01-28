@@ -63,6 +63,8 @@
 
 [瀑布流](waterfallFlow)
 
+[水印](watermark)
+
 [页面布局](pageLayout)
 
 [签名功能](signature)
@@ -80,3 +82,4 @@
 [边框处理](borderDealwith)
 
 [JS 实现简单功能](function)
+
