@@ -1,0 +1,139 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-01-29 11:12:29
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-01-29 11:42:09
+ * @FilePath: /feature-plugin/functionModel/pageLayout/index1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面布局1</title>
+    <style>
+        .wrapper {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 1140px;
+        }
+        
+        .hero__content {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .flow>*+* {
+            margin-top: var(--flow-space, 1em);
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        /* 文章-页面标题 */
+        
+        .page-header {
+            max-width: 50rem;
+            padding: 2rem 1rem;
+        }
+        /* 文章- Main 和 Sidebar */
+        
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 800px) {
+            .page-wrappe {
+                grid-template-columns: 1fr 250px;
+            }
+        }
+        
+        .inner-content {
+            max-width: 50rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        /*  */
+        
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+        }
+        
+        @media (min-width: 700px) {
+            .steps {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+        
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+        }
+        
+        @media (min-width: 200px) {
+            .layout {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部的导航栏 -->
+    <header></header>
+
+    <!-- 中间内容水平居中，注意，这个一般需要设置最大宽度 max-width -->
+    <!-- A div to constraint the content -->
+    <!-- <section class="hero">
+        <div class="hero__content"></div>
+    </section> -->
+    <section class="hero">
+        <!-- A div to constraint the content -->
+        <div class="hero__content flow">
+            <h2>Food is amazing</h2>
+            <p>Learn how to cook amazing meals with easy and simple to follow steps</p>
+            <a href="/learn">Learn now</a>
+        </div>
+    </section>
+
+
+    <!-- 这是一个4列的布局，整个部分都被限制在一个包装器中 -->
+    <!-- <div class="wrapper">
+        <section class="grid-4"></section>
+    </div> -->
+
+    <div class="wrapper">
+        <section class="steps">
+            <div>
+                <h2>How it works</h2>
+                <p>Easy and simple steps</p>
+            </div>
+            <div class="layout">
+                <div class="layout__item" style="background-color: aquamarine;">
+                    <article class="card"></article>
+                </div>
+                <div class="layout__item" style="background-color: blueviolet;">
+                    <article class="card"></article>
+                </div>
+                <div class="layout__item" style="background-color: coral;">
+                    <article class="card"></article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</body>
+
+</html>
