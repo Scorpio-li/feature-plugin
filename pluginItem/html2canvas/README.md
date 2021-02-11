@@ -20,7 +20,7 @@ yarn build
 yarn lint
 ```
 
-## html2canvas(前端快照功能)
+## [html2canvas](http://html2canvas.hertzen.com/)(前端快照功能)
 
 - html2canvas提供将dom绘制到canvas
 

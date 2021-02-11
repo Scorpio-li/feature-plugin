@@ -5,7 +5,7 @@
  * @LastEditTime: 2021-02-01 15:14:32
  * @FilePath: /feature-plugin/fixMobile/fillPit.md
 -->
-# 移动端H5坑位指南
+## 移动端H5坑位指南
 
 - 提及的安卓系统包括Android和基于Android开发的系统
 
@@ -18,5 +18,7 @@
 - Webkit及其衍生内核在移动端浏览器市场占有率里达到惊人的97%，因此无需太过担心CSS3、ES6和浏览器新特性的兼容性
 
 - 真正的开发环境都是基于webpack构建，因此代码演示都不会带上CSS前缀，除非该属性是Webkit独有才会带上-webkit-
+
+## H5与APP之间的交互
 
 
