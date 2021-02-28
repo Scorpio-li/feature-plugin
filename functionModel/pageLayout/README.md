@@ -142,7 +142,7 @@
 
 - 多个子元素
 
-```js
+```css
 <!-- HTML -->
 <div class="grid__container">
     <div class="avatar">:)</div>
@@ -152,7 +152,7 @@
 </div>
 ```
 
-```js
+```css
 <!-- HTML -->
 <div class="grid__container">
     <div class="grid__item">
@@ -174,5 +174,28 @@
 .grid__item {
     display: grid;
     place-items: center;
+}
+```
+
+## 2. 全屏布局
+
+通常而言是左右两栏，左侧定宽，右侧自适应剩余宽度，当然，会有一个最小的宽度。那么，它的布局应该是这样：
+
+```css
+<div class="g-app-wrapper">
+    <div class="g-sidebar"></div>
+    <div class="g-main"></div>
+</div>
+
+.g-app-wrapper {
+    display: flex;
+    min-width: 1200px;
+}
+.g-sidebar {
+    flex-basis: 250px;
+    margin-right: 10px;
+}
+.g-main {
+    flex-grow: 1;
 }
 ```

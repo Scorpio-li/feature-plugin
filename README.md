@@ -2,7 +2,7 @@
  * @Author: Li Zhiliang
  * @Date: 2020-11-05 15:05:47
  * @LastEditors: Li Zhiliang
- * @LastEditTime: 2021-01-12 09:58:37
+ * @LastEditTime: 2021-02-24 11:15:16
  * @FilePath: /feature-plugin/README.md
 -->
 # feature-plugin
@@ -59,6 +59,8 @@
 
 [前端工程化-自动生成页面](autoBuild)
 
+[CSS常用修改](cssEdit)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)
@@ -85,7 +87,9 @@
 
 [JS 实现简单功能](function)
 
-[]
+[防抖和节流](shakeThrottle)
+
+[JS循环遍历](cycle)
 
 ## 移动端总结（fixMobile）
 

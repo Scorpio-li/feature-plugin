@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <input type='file' onchange="checkFile(this.files)" />
+    <input id="importFile" type='file' onchange="checkFile(this.files)" />
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- 通过sctipt标签引入该文件，会在全局生成名为 qiniu 的对象 -->
@@ -38,6 +38,7 @@
             alert("请选择您要上传的文件！");
             return false;
         }
+        console.log(document.getElementById('importFile').value);
         //计算文件大小 
         let size = Math.floor(file.size / 1024);
         if (size > 10000) {
