@@ -61,6 +61,10 @@
 
 [CSS常用修改](cssEdit)
 
+[数据类型](dataType)
+
+[Web即时通讯](instantMessaging)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)
