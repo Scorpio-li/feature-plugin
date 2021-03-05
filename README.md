@@ -65,6 +65,8 @@
 
 [Web即时通讯](instantMessaging)
 
+[Echarts数据可视化开发中的一些技巧和常见问题汇总](echarts)
+
 ## 常用功能代码块(functionModel)
 
 [放大镜功能](magnifyingGlass)
@@ -100,3 +102,5 @@
 [H5填坑系列](fillPit)
 
 [H5与App之间的交互](interaction)
+
+[小程序填坑系列](smallProgram)
