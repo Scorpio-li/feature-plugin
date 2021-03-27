@@ -2,7 +2,7 @@
  * @Author: Li Zhiliang
  * @Date: 2020-11-05 15:05:47
  * @LastEditors: Li Zhiliang
- * @LastEditTime: 2021-02-24 11:15:16
+ * @LastEditTime: 2021-03-27 09:16:13
  * @FilePath: /feature-plugin/README.md
 -->
 # feature-plugin
@@ -28,6 +28,8 @@
 [脚手架的工作原理](nodeCli)
 
 [CSS 动画](animation)
+
+[fabric.js实现可视化签章以及遮罩打印的功能](https://github.com/FranckFreiburger/vue-pdf#readme)
 
 ## 常用业务处理(Project)
 
